@@ -6,6 +6,6 @@ test('should create a engineer object', () => {
 
     expect(engineer.name).toBe('Jason');
     expect(engineer.employeeID).toEqual(expect.any(Number));
-    expect(engineer.email).toEqual(expect.any(string));
-    expect(engineer.officeNumber).toEqual(expect.any(number));
+    expect(engineer.email).toEqual(expect.stringContaining('@'));
+    expect(engineer.github).toEqual(expect.anything());
 })
