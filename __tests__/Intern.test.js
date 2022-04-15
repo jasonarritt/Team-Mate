@@ -2,7 +2,7 @@ const { jest: requiredJest, test } = require('@jest/globals');
 const Intern = require('../lib/Intern');
 
 test('should create a intern object', () => {
-    const intern = new Intern('Jason');
+    const intern = new Intern('Jason', 1, 'j@mail.com', 'UNC');
 
     expect(intern.name).toBe('Jason');
     expect(intern.employeeID).toEqual(expect.any(Number));

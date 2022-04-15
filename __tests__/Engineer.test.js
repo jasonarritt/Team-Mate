@@ -2,7 +2,7 @@ const { jest: requiredJest, test } = require('@jest/globals');
 const Engineer = require('../lib/Engineer');
 
 test('should create a engineer object', () => {
-    const engineer = new Engineer('Jason');
+    const engineer = new Engineer('Jason', 1, 'j@mail.com', 'jasonarritt');
 
     expect(engineer.name).toBe('Jason');
     expect(engineer.employeeID).toEqual(expect.any(Number));
