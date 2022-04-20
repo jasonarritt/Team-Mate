@@ -5,14 +5,19 @@ const engineer = require('./lib/Classes/Engineer');
 const intern = require('./lib/Classes/Intern');
 const manager = require('./lib/Classes/Manager');
 
-const { mainMenuQuestions } = require('./lib/questions')
+const {
+    mainMenuQuestions,
+    managerQuestions,
+    engineerQuestions,
+    internQuestions
+} = require('./lib/questions')
 
 
 
 
 class TeamBuilder {
     constructor() {
-        this.manager = [];
+        this.allManagers = [];
         this.allEmployees = [];
         this.allInterns = [];
     }
@@ -23,14 +28,15 @@ class TeamBuilder {
 
         switch (menuChoice) {
             case 'Engineer':
-
-            break;
+                this.addEngineer();
+                break;
 
             case 'Intern':
-
+                this.addIntern();
                 break;
 
             case 'Manager':
+                this.addManager();
 
                 break;
 
@@ -42,6 +48,27 @@ class TeamBuilder {
                 return;
         }
 
+    }
+
+    async addManager() {
+        const { name, employeeID, email, officeNumber } = await inquirer.prompt(managerQuestions);
+
+        const manager = new Manager(name, employeeID, email, officeNumber)
+        this.allManagers.push(manager);
+    }
+
+    async addEngineer() {
+        const { name, employeeID, email, github } = await inquirer.prompt(engineerQuestions);
+
+        const engineer = new Engineer(name, employeeID, email, github)
+        this.allEngineers.push(engineer);
+    }
+
+    async addIntern() {
+        const { name, employeeID, email, school } = await inquirer.prompt(internQuestions);
+
+        const intern = new Intern(name, employeeID, email, school)
+        this.allInterns.push(intern);
     }
 
     init() {
