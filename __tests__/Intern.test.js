@@ -1,5 +1,5 @@
 const { jest: requiredJest, test } = require('@jest/globals');
-const Intern = require('../lib/Intern');
+const Intern = require('../lib/Classes/Intern');
 
 test('should create a intern object', () => {
     const intern = new Intern('Jason', 1, 'j@mail.com', 'UNC');

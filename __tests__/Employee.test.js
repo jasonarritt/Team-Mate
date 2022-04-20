@@ -1,5 +1,5 @@
 const { jest: requiredJest, test } = require('@jest/globals');
-const Employee = require('../lib/Employee');
+const Employee = require('../lib/Classes/Employee');
 
 test('should create a employee object', () => {
     const employee = new Employee('Jason', 1, 'j@mail.com');

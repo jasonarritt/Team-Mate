@@ -1,5 +1,5 @@
 const { jest: requiredJest, test } = require('@jest/globals');
-const Manager = require('../lib/Manager');
+const Manager = require('../lib/Classes/Manager');
 
 test('should create a manager object', () => {
     const manager = new Manager('Jason', 1, 'j@mail.com', 'D-3256');

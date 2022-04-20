@@ -1,8 +1,9 @@
+
+const fs = require('fs');
 const inquirer = require('inquirer');
-const employee = require('./lib/Employee');
-const engineer = require('./lib/Engineer');
-const intern = require('./lib/Intern');
-const manager = require('./lib/Manager');
+const engineer = require('./lib/Classes/Engineer');
+const intern = require('./lib/Classes/Intern');
+const manager = require('./lib/Classes/Manager');
 
 // Manager questions
 managerQuestionsArray = [
@@ -113,3 +114,27 @@ engineerQuestionsArray = [
         message: "Please enter the engineer's GitHub username:"
     }
 ]
+
+
+
+
+class teamBuilder {
+    constructor() {
+        this.manager = [];
+        this.allEmployees = [];
+        this.allInterns = [];
+    }
+
+    async mainMenu() {
+
+        const {} = await inquirer.prompt();
+
+    }
+
+    init() {
+        console.log("Welcome to Team Builder");
+        
+        this.mainMenu();
+    }
+}
+
