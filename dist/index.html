@@ -1,6 +1,4 @@
 
-const generateHTML = (allEngineers, allInterns, allManagers) => (
-    `
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,23 +12,23 @@ const generateHTML = (allEngineers, allInterns, allManagers) => (
 
     <h3>Managers</h3>
     <ul>
-        ${allManagers.map(manager => (`<li>${manager.teammateName}</li>\n`))}
+        <li>Jason</li>
+
     </ul>
     
     <h3>Engineers</h3>
     <ul>
-        ${allEngineers.map(engineer => (`<li>${engineer.teammateName}</li>\n`))}
+        <li>Bob</li>
+
     </ul>
 
     <h3>Interns</h3>
     <ul>
-        ${allInterns.map(intern => (`<li>${intern.teammateName}</li>\n`))}
+        <li>Jane</li>
+
     </ul>
 
 </body>
 </html>
 
-    `
-)
-
-module.exports = generateHTML;
+    

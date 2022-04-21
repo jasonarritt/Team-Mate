@@ -4,6 +4,7 @@ const inquirer = require('inquirer');
 const Engineer = require('./lib/Classes/Engineer');
 const Intern = require('./lib/Classes/Intern');
 const Manager = require('./lib/Classes/Manager');
+const generateHTML = require('./src/generateHTML');
 
 const {
     mainMenuQuestion,
@@ -19,7 +20,7 @@ class TeamBuilder {
         this.allEngineers = [];
         this.allInterns = [];
         this.allManagers = [];
-    }
+    };
 
     async mainMenu() {
         const { mainMenuChoice } = await inquirer.prompt(mainMenuQuestion);
@@ -29,16 +30,19 @@ class TeamBuilder {
                 this.addTeammate()
                 break;
 
-            case "I'm finished adding team members.":
-                this.buildHTML();
-                // return;
+            case 'Build Team Page':
+                this.createHTML();
                 break;
+
+            case 'Exit Team Mate':
+                console.log('Exiting Team Mate!')
+                return;
 
             default:
                 return;
     
         }
-    }
+    };
 
     async addTeammate() {
         const { teammateType, teammateName, teammateID, teammateEmail } = await inquirer.prompt(addTeammateQuestions.firstSeries);
@@ -75,16 +79,26 @@ class TeamBuilder {
         console.log(`\n${teammateName} has been successfully added to the team in the position of ${teammateType}.\n`);
 
         this.mainMenu();
-    }
+    };
+
+    async createHTML() {
+        console.log('Entering createHTML');
+
+        const file = await fs.promises.writeFile('./dist/index.html', generateHTML(this.allEngineers, this.allInterns, this.allManagers), 'utf8');
+
+        console.log(`\nYour team index.html page has been successfully created and can be retrieved from the dist/ folder.`);
+
+        return this.mainMenu();
+    };
 
     init() {
         console.log("Welcome to Managers Mate!\n");
         
         this.mainMenu();
-    }
+    };
 
 
-}
+};
 
 const myTeam = new TeamBuilder();
 
