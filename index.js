@@ -6,7 +6,7 @@ const Intern = require('./lib/Classes/Intern');
 const Manager = require('./lib/Classes/Manager');
 
 const {
-    // mainMenuQuestions,
+    mainMenuQuestion,
     addTeammateQuestions
 } = require('./lib/questions')
 
@@ -21,6 +21,24 @@ class TeamBuilder {
         this.allManagers = [];
     }
 
+    async mainMenu() {
+        const { mainMenuChoice } = await inquirer.prompt(mainMenuQuestion);
+
+        switch(mainMenuChoice) {
+            case 'Add Teammate':
+                this.addTeammate()
+                break;
+
+            case "I'm finished adding team members.":
+                this.buildHTML();
+                // return;
+                break;
+
+            default:
+                return;
+    
+        }
+    }
 
     async addTeammate() {
         const { teammateType, teammateName, teammateID, teammateEmail } = await inquirer.prompt(addTeammateQuestions.firstSeries);
@@ -50,24 +68,24 @@ class TeamBuilder {
                 this.allManagers.push(manager);
                 break;
 
-            case "I'm finished adding team members.":
-
-                break;
-
             default:
                 return;
         }
+
+        console.log(`\n${teammateName} has been successfully added to the team in the position of ${teammateType}.\n`);
+
+        this.mainMenu();
     }
 
     init() {
         console.log("Welcome to Managers Mate!\n");
         
-        this.addTeammate();
+        this.mainMenu();
     }
 
 
 }
 
-const team1 = new TeamBuilder();
+const myTeam = new TeamBuilder();
 
-team1.init();
+myTeam.init();
