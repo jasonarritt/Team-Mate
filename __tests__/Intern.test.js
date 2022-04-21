@@ -4,10 +4,10 @@ const Intern = require('../lib/Classes/Intern');
 test('should create a intern object', () => {
     const intern = new Intern('Jason', 1, 'j@mail.com', 'UNC');
 
-    expect(intern.name).toBe('Jason');
-    expect(intern.employeeID).toEqual(expect.any(Number));
-    expect(intern.email).toEqual(expect.stringContaining('@'));
-    expect(intern.school).toEqual(expect.anything());
+    expect(intern.teammateName).toBe('Jason');
+    expect(intern.teammateID).toEqual(expect.any(Number));
+    expect(intern.teammateEmail).toEqual(expect.stringContaining('@'));
+    expect(intern.internSchool).toEqual(expect.anything());
 })
 
 test('should return intern name as Josh', () => {

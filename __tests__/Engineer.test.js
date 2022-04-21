@@ -4,10 +4,10 @@ const Engineer = require('../lib/Classes/Engineer');
 test('should create a engineer object', () => {
     const engineer = new Engineer('Jason', 1, 'j@mail.com', 'jasonarritt');
 
-    expect(engineer.name).toBe('Jason');
-    expect(engineer.employeeID).toEqual(expect.any(Number));
-    expect(engineer.email).toEqual(expect.stringContaining('@'));
-    expect(engineer.github).toEqual(expect.anything());
+    expect(engineer.teammateName).toBe('Jason');
+    expect(engineer.teammateID).toEqual(expect.any(Number));
+    expect(engineer.teammateEmail).toEqual(expect.stringContaining('@'));
+    expect(engineer.engineerGithub).toEqual(expect.anything());
 })
 
 test('should return engineer name as Josh', () => {

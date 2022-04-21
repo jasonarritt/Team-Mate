@@ -1,15 +1,13 @@
 
 const fs = require('fs');
 const inquirer = require('inquirer');
-const engineer = require('./lib/Classes/Engineer');
-const intern = require('./lib/Classes/Intern');
-const manager = require('./lib/Classes/Manager');
+const Engineer = require('./lib/Classes/Engineer');
+const Intern = require('./lib/Classes/Intern');
+const Manager = require('./lib/Classes/Manager');
 
 const {
-    mainMenuQuestions,
-    managerQuestions,
-    engineerQuestions,
-    internQuestions
+    // mainMenuQuestions,
+    addTeammateQuestions
 } = require('./lib/questions')
 
 
@@ -17,27 +15,39 @@ const {
 
 class TeamBuilder {
     constructor() {
-        this.allManagers = [];
         this.allEmployees = [];
+        this.allEngineers = [];
         this.allInterns = [];
+        this.allManagers = [];
     }
 
-    async mainMenu() {
 
-        const { menuChoice } = await inquirer.prompt(mainMenuQuestions);
+    async addTeammate() {
+        const { teammateType, teammateName, teammateID, teammateEmail } = await inquirer.prompt(addTeammateQuestions.firstSeries);
 
-        switch (menuChoice) {
+        switch (teammateType) {
             case 'Engineer':
-                this.addEngineer();
+                const { engineerGithub } = await inquirer.prompt(addTeammateQuestions.engineerPrompt);
+
+                const engineer = new Engineer(teammateName, teammateID, teammateEmail, engineerGithub);
+
+                this.allEngineers.push(engineer);
                 break;
 
             case 'Intern':
-                this.addIntern();
+                const { internSchool } = await inquirer.prompt(addTeammateQuestions.internPrompt);
+
+                const intern = new Intern(teammateName, teammateID, teammateEmail, internSchool);
+
+                this.allInterns.push(intern);
                 break;
 
             case 'Manager':
-                this.addManager();
+                const { managerOfficeNumber } = await inquirer.prompt(addTeammateQuestions.managerPrompt);
 
+                const manager = new Manager(teammateName, teammateID, teammateEmail, managerOfficeNumber);
+
+                this.allManagers.push(manager);
                 break;
 
             case "I'm finished adding team members.":
@@ -47,34 +57,12 @@ class TeamBuilder {
             default:
                 return;
         }
-
-    }
-
-    async addManager() {
-        const { name, employeeID, email, officeNumber } = await inquirer.prompt(managerQuestions);
-
-        const manager = new Manager(name, employeeID, email, officeNumber)
-        this.allManagers.push(manager);
-    }
-
-    async addEngineer() {
-        const { name, employeeID, email, github } = await inquirer.prompt(engineerQuestions);
-
-        const engineer = new Engineer(name, employeeID, email, github)
-        this.allEngineers.push(engineer);
-    }
-
-    async addIntern() {
-        const { name, employeeID, email, school } = await inquirer.prompt(internQuestions);
-
-        const intern = new Intern(name, employeeID, email, school)
-        this.allInterns.push(intern);
     }
 
     init() {
         console.log("Welcome to Managers Mate!\n");
         
-        this.mainMenu();
+        this.addTeammate();
     }
 
 

@@ -4,10 +4,10 @@ const Manager = require('../lib/Classes/Manager');
 test('should create a manager object', () => {
     const manager = new Manager('Jason', 1, 'j@mail.com', 'D-3256');
 
-    expect(manager.name).toBe('Jason');
-    expect(manager.employeeID).toEqual(expect.any(Number));
-    expect(manager.email).toEqual(expect.stringContaining('@'));
-    expect(manager.officeNumber).toEqual(expect.anything());
+    expect(manager.teammateName).toBe('Jason');
+    expect(manager.teammateID).toEqual(expect.any(Number));
+    expect(manager.teammateEmail).toEqual(expect.stringContaining('@'));
+    expect(manager.managerOfficeNumber).toEqual(expect.anything());
 })
 
 test('should return manager name as Josh', () => {

@@ -4,9 +4,9 @@ const Employee = require('../lib/Classes/Employee');
 test('should create a employee object', () => {
     const employee = new Employee('Jason', 1, 'j@mail.com');
 
-    expect(employee.name).toBe('Jason');
-    expect(employee.employeeID).toEqual(expect.any(Number));
-    expect(employee.email).toEqual(expect.stringContaining('@'));
+    expect(employee.teammateName).toBe('Jason');
+    expect(employee.teammateID).toEqual(expect.any(Number));
+    expect(employee.teammateEmail).toEqual(expect.stringContaining('@'));
 })
 
 test('should return employee name as Josh', () => {
