@@ -13,15 +13,15 @@ const generateHTML = (allEngineers, allInterns, allManagers) => (
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
         <title>Team Mate</title>
     </head>
-    <body>
+    <body class='has-background-light'>
         <h1 class="title is-1 has-text-link has-text-centered">Team Mate</h1>
 
         <div id='managers' class='is-primary has-text-centered'>
         <h3 class="title is-3 has-text-success">Managers</h3>
-        <section id='manager-list' class='container is-flex-direction-row is-justify-content-space-around'>
+        <section id='manager-list' class='container columns is-fluid'>
             ${allManagers.map(({ teammateName, teammateID, teammateEmail, managerOfficeNumber }) => {
                 return`
-                <div class='manager card m-auto'>
+                <div class='manager card m-auto column'>
                 <p>Name: ${teammateName}</p>
                 <p>ID: ${teammateID}</p>
                 <p>Email: <a href="mailto:${teammateEmail}">${teammateEmail}</a></p>
@@ -29,7 +29,7 @@ const generateHTML = (allEngineers, allInterns, allManagers) => (
                 </div>
                 `
                 })
-            } 
+                .join(' ')} 
             
         </section>
         
@@ -37,11 +37,11 @@ const generateHTML = (allEngineers, allInterns, allManagers) => (
 
         <div id='engineers' class='is-primary has-text-centered'>
         <h3 class="title is-3 has-text-warning">Engineers</h3>
-        <section id='engineer-list' class='container is-flex-direction-row is-justify-content-space-around'>
+        <section id='engineer-list' class='container columns is-fluid'>
 
         ${allEngineers.map(({ teammateName, teammateID, teammateEmail, engineerGithub }) => {
             return`
-            <div class='engineer card m-auto'>
+            <div class='engineer card m-auto column'>
             <p>Name: ${teammateName}</p>
             <p>ID: ${teammateID}</p>
             <p>Email: <a href="mailto:${teammateEmail}">${teammateEmail}</a></p>
@@ -49,18 +49,18 @@ const generateHTML = (allEngineers, allInterns, allManagers) => (
             </div>
             `
             })
-        } 
+            .join(' ')} 
         
         </section>
         </div>
 
         <div id='interns' class='is-primary has-text-centered'>
         <h3 class="title is-3 has-text-info">Interns</h3>
-        <section id='intern-list' class='container is-flex-direction-row is-justify-content-space-around'>
+        <section id='intern-list' class='container columns is-fluid'>
 
         ${allInterns.map(({ teammateName, teammateID, teammateEmail, internSchool }) => {
             return`
-            <div class='intern card m-auto'>
+            <div class='intern card m-auto column'>
             <p>Name: ${teammateName}</p>
             <p>ID: ${teammateID}</p>
             <p>Email: <a href="mailto:${teammateEmail}">${teammateEmail}</a></p>
@@ -68,7 +68,7 @@ const generateHTML = (allEngineers, allInterns, allManagers) => (
             </div>
             `
             })
-        } 
+            .join('')}
         
         </section>
         </div>
