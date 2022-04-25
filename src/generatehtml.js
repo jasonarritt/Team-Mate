@@ -45,7 +45,7 @@ const generateHTML = (allEngineers, allInterns, allManagers) => (
             <p>Name: ${teammateName}</p>
             <p>ID: ${teammateID}</p>
             <p>Email: <a href="mailto:${teammateEmail}">${teammateEmail}</a></p>
-            <p>Office Number: ${engineerGithub}</p>
+            <p>GitHub: <a href="https://github.com/${engineerGithub}" target="_blank">${engineerGithub}</a></p>
             </div>
             `
             })
@@ -64,7 +64,7 @@ const generateHTML = (allEngineers, allInterns, allManagers) => (
             <p>Name: ${teammateName}</p>
             <p>ID: ${teammateID}</p>
             <p>Email: <a href="mailto:${teammateEmail}">${teammateEmail}</a></p>
-            <p>Office Number: ${internSchool}</p>
+            <p>School: ${internSchool}</p>
             </div>
             `
             })
