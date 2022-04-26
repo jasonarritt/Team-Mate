@@ -30,7 +30,7 @@
       
   <https://opensource.org/licenses/MIT/>
   ## Contributing
-  Those who would like to contribute can reach out to the email address provided in the Contact section below.
+  Those who would like to contribute can reach out to the email address provided in the Questions section below.
   ## Tests
   Within the Team Mate application is a __tests__ folder that contains suites of tests for each of the four teammate classes currently in use. The tests can be run entering the command "npm run test" on the command line.
   ## Questions
