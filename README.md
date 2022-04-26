@@ -14,9 +14,12 @@
   ## Installation
   Installation requires a user to clone the team-mate GitHub repository to their local machine. After cloning and opening the repository in their command line tool, the user must enter the command "npm install" to have the necessary NPM packages installed.
   ## Usage
-  After installing the necessary NPM packages, the user can then enter the command "npm start" or "node index.js" to initiate the application. When the application is initialized the user is presented with a menu of choices to add a teammate, build a team page based off collected information or exit the Team Mate application. When the user selects the option to add a teammate they can choose between adding an engineer, an intern or a manager. The user is then prompted with a series of questions to enter information for the respective teammate and is returned to the main menu after completing the questions for that teammate. Once the user is finished adding all of their teammates they can select the option to build their team page. The Team Mate application will then generate a HTML file containing the information of the added teammates. The user can retrieve the HTML file from the dist/ folder within Team Mate. A video demonstration of running tests and using the Team Mate application is available at the following Google Drive link:
+  After installing the necessary NPM packages, the user can then enter the command "npm start" or "node index.js" to initiate the application. When the application is initialized the user is presented with a menu of choices to add a teammate, build a team page based off collected information or exit the Team Mate application. When the user selects the option to add a teammate they can choose between adding an engineer, an intern or a manager. The user is then prompted with a series of questions to enter information for the respective teammate and is returned to the main menu after completing the questions for that teammate. Once the user is finished adding all of their teammates they can select the option to build their team page. The Team Mate application will then generate a HTML file containing the information of the added teammates. The user can retrieve the HTML file from the dist/ folder within Team Mate.
 
-  <https://drive.google.com/file/d/1Io4582k7Wy54xMdNX3bE0vnyIwQZYLBw/view>
+
+https://user-images.githubusercontent.com/98424788/165343792-169c237b-5a3a-4b0b-9d9a-2e563e289e32.mp4
+
+
   ## License
   Copyright 2022 jasonarritt
   
